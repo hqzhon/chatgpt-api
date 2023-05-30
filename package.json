@@ -1,9 +1,9 @@
 {
-  "name": "chatgpt",
-  "version": "5.2.4",
-  "description": "Node.js client for the official ChatGPT API.",
-  "author": "Travis Fischer <travis@transitivebullsh.it>",
-  "repository": "transitive-bullshit/chatgpt-api",
+  "name": "chatgpt-vscode",
+  "version": "5.2.7",
+  "description": "Node.js client for the official ChatGPT API for vscode.",
+  "author": "hqzhon <hqzhon@gmail.com>",
+  "repository": "hqzhon/chatgpt-api",
   "license": "MIT",
   "type": "module",
   "source": "./src/index.ts",
@@ -45,7 +45,8 @@
     "p-timeout": "^6.1.1",
     "quick-lru": "^6.1.1",
     "read-pkg-up": "^9.1.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "node-fetch": "3.3.1"
   },
   "devDependencies": {
     "@keyv/redis": "^2.5.7",
