@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-vscode",
-  "version": "5.2.7",
+  "version": "5.2.8",
   "description": "Node.js client for the official ChatGPT API for vscode.",
   "author": "hqzhon <hqzhon@gmail.com>",
   "repository": "hqzhon/chatgpt-api",
