@@ -3,7 +3,6 @@ import pTimeout from 'p-timeout'
 import QuickLRU from 'quick-lru'
 import { v4 as uuidv4 } from 'uuid'
 
-import * as tokenizer from './tokenizer'
 import * as types from './types'
 import { fetch as globalFetch } from './fetch'
 import { fetchSSE } from './fetch-sse'
@@ -305,7 +304,7 @@ export class ChatGPTAPI {
       if (message.detail && !message.detail.usage) {
         try {
           const promptTokens = numTokens
-          const completionTokens = await this._getTokenCount(message.text)
+          const completionTokens = message.text.length
           message.detail.usage = {
             prompt_tokens: promptTokens,
             completion_tokens: completionTokens,
@@ -401,7 +400,7 @@ export class ChatGPTAPI {
         }, [] as string[])
         .join('\n\n')
 
-      const nextNumTokensEstimate = await this._getTokenCount(prompt)
+      const nextNumTokensEstimate = prompt.length
       const isValidPrompt = nextNumTokensEstimate <= maxNumTokens
 
       if (prompt && !isValidPrompt) {
@@ -446,13 +445,6 @@ export class ChatGPTAPI {
     )
 
     return { messages, maxTokens, numTokens }
-  }
-
-  protected async _getTokenCount(text: string) {
-    // TODO: use a better fix in the tokenizer
-    text = text.replace(/<\|endoftext\|>/g, '')
-
-    return tokenizer.encode(text).length
   }
 
   protected async _defaultGetMessageById(
