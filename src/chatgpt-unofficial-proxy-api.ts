@@ -47,7 +47,7 @@ export class ChatGPTUnofficialProxyAPI {
     this._apiReverseProxyUrl = apiReverseProxyUrl
     this._debug = !!debug
     this._model = model
-    this._fetch = fetch
+    this._fetch = globalFetch
     this._headers = headers
 
     if (!this._accessToken) {

@@ -67,7 +67,7 @@ export class ChatGPTAPI {
     this._apiOrg = apiOrg
     this._apiBaseUrl = apiBaseUrl
     this._debug = !!debug
-    this._fetch = fetch
+    this._fetch = globalFetch
 
     this._completionParams = {
       model: CHATGPT_MODEL,
